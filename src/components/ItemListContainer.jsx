@@ -1,8 +1,12 @@
 import React from 'react'
-
-const ItemListContainer = () => {
+import {Text } from '@chakra-ui/react'
+const ItemListContainer = ({greeting}) => {
     return (
-        <div>ItemListContainer</div>
+        <div>
+            <Text fontSize='4xl'>
+                {greeting}
+            </Text>
+        </div>
     )
 }
 

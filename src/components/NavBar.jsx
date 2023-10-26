@@ -1,22 +1,26 @@
-import React from 'react'
-import CartWidget from './CartWidget'
-import { Menu, MenuButton, MenuList, MenuItem, Flex, Box, Spacer } from '@chakra-ui/react'
+import React from 'react';
+import CartWidget from './CartWidget';
+import { Menu, MenuButton, MenuList, MenuItem, Flex, Box, Spacer, Image, Circle, Text } from '@chakra-ui/react';
 
 const NavBar = () => {
     return (
         <div>
 
             <Flex>
-                <Box>
-                    <img src="../assets/images/logocuervo.png" alt="logocuervo" />
-                    <h3>Brand</h3>
+                <Box ml={5} mt={2} mb={2} >
+                    <Image
+                        borderRadius='full'
+                        boxSize='40px'
+                        src="./src/assets/images/logocuervo.png" alt="logocuervo"
+                    />
                 </Box>
-                <Spacer/>
-                <Spacer/>
-                <Box>
+                <Spacer />
+                <Box mt={5} >
                     <Menu>
                         <MenuButton>
-                            Categorias
+                            <Text fontSize='2xl'>
+                                Categorias
+                            </Text>
                         </MenuButton>
                         <MenuList>
                             <MenuItem>Camisetas</MenuItem>
@@ -27,13 +31,13 @@ const NavBar = () => {
                     </Menu>
                 </Box>
 
-                <Spacer/>
-                <Box>
+                <Spacer />
+                <Circle size='40px' bg='black' color='white' mr={3} mt={2}>
                     <CartWidget />
-                </Box>
+                </Circle>
             </Flex>
 
-            
+
         </div>
     )
 }
