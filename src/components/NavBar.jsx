@@ -7,7 +7,7 @@ const NavBar = () => {
         <div>
 
             <Flex>
-                <Box ml={5} mt={2} mb={2} >
+                <Box ml={8} mt={2} mb={2} >
                     <Image
                         borderRadius='full'
                         boxSize='40px'
@@ -30,9 +30,8 @@ const NavBar = () => {
                         </MenuList>
                     </Menu>
                 </Box>
-
                 <Spacer />
-                <Circle size='40px' bg='black' color='white' mr={3} mt={2}>
+                <Circle size='50px' bg='black' color='white' mr={8} mt={2}>
                     <CartWidget />
                 </Circle>
             </Flex>

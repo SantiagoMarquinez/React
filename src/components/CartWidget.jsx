@@ -1,14 +1,16 @@
 import React from 'react'
 import { BsFillCartFill } from "react-icons/bs";
-import { Menu, MenuButton, MenuList, MenuItem, Flex, Box, Spacer } from '@chakra-ui/react';
+import { Flex, Spacer } from '@chakra-ui/react';
 
 const CartWidget = () => {
     return (
         <>
-        <Spacer/>
+            <Spacer />
             <div>
                 <h3>5</h3>
-                <BsFillCartFill />
+                <Flex align='center' justify='center'>
+                    <BsFillCartFill />
+                </Flex>
             </div>
         </>
     )
