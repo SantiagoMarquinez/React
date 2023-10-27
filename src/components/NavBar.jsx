@@ -10,7 +10,7 @@ const NavBar = () => {
                 <Box ml={8} mt={2} mb={2} >
                     <Image
                         borderRadius='full'
-                        boxSize='40px'
+                        boxSize='45px'
                         src="./src/assets/images/logocuervo.png" alt="logocuervo"
                     />
                 </Box>
@@ -31,7 +31,7 @@ const NavBar = () => {
                     </Menu>
                 </Box>
                 <Spacer />
-                <Circle size='50px' bg='black' color='white' mr={8} mt={2}>
+                <Circle size='45px' bg='black' color='white' mr={8} mt={2}>
                     <CartWidget />
                 </Circle>
             </Flex>

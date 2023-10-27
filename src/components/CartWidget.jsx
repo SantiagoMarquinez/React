@@ -6,8 +6,8 @@ const CartWidget = () => {
     return (
         <>
             <Spacer />
-            <div>
-                <h3>5</h3>
+            <div className='logoCarrito'>
+                <h3 className='numeroCarrito'>5</h3>
                 <Flex align='center' justify='center'>
                     <BsFillCartFill />
                 </Flex>
