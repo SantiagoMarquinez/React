@@ -1,5 +1,7 @@
 import React from 'react';
 import { Flex, Text } from '@chakra-ui/react';
+import ItemCount from './ItemCount';
+import ItemList from './ItemList';
 const ItemListContainer = ({ greeting }) => {
     const productos = [
         { id: 1, nombre: "Producto 1", precio: 20 },
@@ -7,24 +9,23 @@ const ItemListContainer = ({ greeting }) => {
         { id: 3, nombre: "Producto 3", precio: 48 },
         { id: 4, nombre: "Producto 4", precio: 60 },
     ]
-    const validacion = true;
+    
     const promesa = new Promise((resolve, reject) => {
-        if (validacion) {
+        if (productos.length>0) {
             setTimeout(() => {
-                resolve("Productos validados");
-                console.log(productos);
-            }, 3000);
-        } else {
-            reject("Error en la consulta");
-        }
+                resolve(productos);
+                }, 3000);
+            } else {
+                reject("Error: no se encontraron productos");
+                }
     });
     promesa
-    .then((resultado) =>{
-        console.log(resultado)
-    })
-    .catch((error) =>{
-        console.log(error)
-    });
+        .then((resultado) => {
+            console.log(resultado)
+        })
+        .catch((error) => {
+            console.log(error)
+        });
     return (
         <div>
             <Flex align='center' justify='center'>
@@ -32,6 +33,8 @@ const ItemListContainer = ({ greeting }) => {
                     {greeting}
                 </Text>
             </Flex>
+            <ItemList productos={productos}/>
+            <ItemCount />
         </div>
     )
 }

@@ -60,7 +60,7 @@ button:focus-visible {
 
 .numeroCarrito{
   position: absolute;
-  top: -10px; left: 18px;
+  top: 2px; left: 16px;
   color: white;
 }
 
