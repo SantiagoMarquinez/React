@@ -9,15 +9,15 @@ const ItemListContainer = ({ greeting }) => {
         { id: 3, nombre: "Producto 3", precio: 48 },
         { id: 4, nombre: "Producto 4", precio: 60 },
     ]
-    
+
     const promesa = new Promise((resolve, reject) => {
-        if (productos.length>0) {
+        if (productos.length > 0) {
             setTimeout(() => {
                 resolve(productos);
-                }, 3000);
-            } else {
-                reject("Error: no se encontraron productos");
-                }
+            }, 3000);
+        } else {
+            reject("Error: no se encontraron productos");
+        }
     });
     promesa
         .then((resultado) => {
@@ -33,7 +33,9 @@ const ItemListContainer = ({ greeting }) => {
                     {greeting}
                 </Text>
             </Flex>
-            <ItemList productos={productos}/>
+            <div className='cardContainer'>
+                <ItemList productos={productos} />
+            </div>
             <ItemCount />
         </div>
     )

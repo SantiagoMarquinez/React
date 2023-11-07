@@ -71,6 +71,13 @@ button:focus-visible {
   background-color: #1a1a1a;
 }
 
+.cardContainer{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  background-color: red;
+}
+
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
