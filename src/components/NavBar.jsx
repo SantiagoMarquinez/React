@@ -11,7 +11,7 @@ const NavBar = () => {
                     <Image
                         borderRadius='full'
                         boxSize='45px'
-                        src="src/assets/images/logocuervo.png" alt="logocuervo"
+                        src="./src/assets/images/logocuervo.png" alt="logocuervo"
                     />
                 </Box>
                 <Spacer />
