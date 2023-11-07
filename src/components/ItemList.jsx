@@ -3,12 +3,12 @@ import { Card, Stack, CardBody, CardFooter, ButtonGroup, Divider, Heading, Butto
 const ItemList = ({ productos }) => {
     return (
         <>
-            <div>
+            <div className='cardContainer'>
                 {productos.map((p) => {
                     return (
                         <div>
                             <div key={p.id}>
-                                <Card maxW='sm' mt='5'>
+                                <Card maxW='sm' m='5'>
                                     <CardBody>
                                         <Image
                                             src='https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80'
