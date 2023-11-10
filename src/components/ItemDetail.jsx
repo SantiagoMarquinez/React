@@ -1,6 +1,7 @@
 import React from 'react'
 import { Card, Stack, CardBody, CardFooter, ButtonGroup, Divider, Heading, Button, Text, Image } from '@chakra-ui/react'
-const Item = ({p}) => {
+
+const ItemDetail = ({p}) => {
     return (
         <div>
             <Card maxW='sm' m='5'>
@@ -38,4 +39,4 @@ const Item = ({p}) => {
     )
 }
 
-export default Item
+export default ItemDetail
