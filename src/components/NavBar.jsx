@@ -1,19 +1,22 @@
 import React from 'react';
 import CartWidget from './CartWidget';
 import { Menu, MenuButton, MenuList, MenuItem, Flex, Box, Spacer, Image, Circle, Text } from '@chakra-ui/react';
+import { Link } from 'react-router-dom';
 
 const NavBar = () => {
     return (
         <div>
 
             <Flex>
-                <Box ml={8} mt={2} mb={2} >
-                    <Image
-                        borderRadius='full'
-                        boxSize='45px'
-                        src="./src/assets/images/logocuervo.png" alt="logocuervo"
-                    />
-                </Box>
+                <Link to={'/ItemListContainer'}>
+                    <Box ml={8} mt={2} mb={2} >
+                        <Image
+                            borderRadius='full'
+                            boxSize='45px'
+                            src="./src/assets/images/logocuervo.png" alt="logocuervo"
+                        />
+                    </Box>
+                </Link>
                 <Spacer />
                 <Box mt={5} >
                     <Menu>
@@ -23,7 +26,7 @@ const NavBar = () => {
                             </Text>
                         </MenuButton>
                         <MenuList>
-                            <MenuItem>Camisetas</MenuItem>
+                            <MenuItem><Link to={'/ItemDetailContainer'}> Camisetas</Link></MenuItem>
                             <MenuItem>Camperas</MenuItem>
                             <MenuItem>Shorts</MenuItem>
                             <MenuItem>Medias</MenuItem>

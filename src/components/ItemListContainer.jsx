@@ -1,13 +1,13 @@
 import React from 'react';
 import { Flex, Text } from '@chakra-ui/react';
-import ItemCount from './ItemCount';
 import ItemList from './ItemList';
-const ItemListContainer = ({ greeting }) => {
+
+const ItemListContainer = () => {
     const productos = [
-        { id: 1, nombre: "Producto 1", precio: 20 },
-        { id: 2, nombre: "Producto 2", precio: 35 },
-        { id: 3, nombre: "Producto 3", precio: 48 },
-        { id: 4, nombre: "Producto 4", precio: 60 },
+        { id: 1, nombre: "Producto 1", precio: 20, categoria:"camisetas" },
+        { id: 2, nombre: "Producto 2", precio: 35, categoria:"camperas" },
+        { id: 3, nombre: "Producto 3", precio: 48, categoria:"short" },
+        { id: 4, nombre: "Producto 4", precio: 60, categoria:"medias" },
     ]
 
     const promesa = new Promise((resolve, reject) => {
@@ -30,13 +30,12 @@ const ItemListContainer = ({ greeting }) => {
         <div>
             <Flex align='center' justify='center'>
                 <Text fontSize='4xl'>
-                    {greeting}
+                    Cuervo Store
                 </Text>
             </Flex>
             <div className='cardContainer'>
                 <ItemList productos={productos} />
             </div>
-            <ItemCount />
         </div>
     )
 }
