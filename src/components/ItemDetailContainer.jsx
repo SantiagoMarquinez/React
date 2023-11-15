@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Flex, Text } from '@chakra-ui/react';
+import ItemCount from './ItemCount';
 import ItemDetail from './ItemDetail';
 
 const ItemDetailContainer = ({ id }) => {
@@ -40,12 +41,9 @@ const ItemDetailContainer = ({ id }) => {
                     <p className='error'>No se encontró el producto </p>
                 )}
             </div>
+            <ItemCount />
         </div>
     );
 };
 
 export default ItemDetailContainer;
-
-
-
-

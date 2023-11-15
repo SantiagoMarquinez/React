@@ -1,5 +1,4 @@
 import React from 'react'
-import { Card, Stack, CardBody, CardFooter, ButtonGroup, Divider, Heading, Button, Text, Image } from '@chakra-ui/react'
 import Item from './Item'
 const ItemList = ({ productos }) => {
     return (
@@ -7,14 +6,10 @@ const ItemList = ({ productos }) => {
             <div className='cardContainer'>
                 {productos.map((p) => {
                     return (
-                    <> 
-                        <div>
+                    
+                        <div key={p.id}>
                             <Item p={p}/>
-                        </div>
-                        {/* <div>
-                            <Item p={p}/>
-                        </div> */}
-                        </>   
+                        </div>  
                     )
                 })
                 }

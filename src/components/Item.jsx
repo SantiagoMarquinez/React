@@ -1,5 +1,6 @@
 import React from 'react'
 import { Card, Stack, CardBody, CardFooter, ButtonGroup, Divider, Heading, Button, Text, Image } from '@chakra-ui/react'
+import { Link } from 'react-router-dom'
 const Item = ({p}) => {
     return (
         <div>
@@ -12,25 +13,24 @@ const Item = ({p}) => {
                     />
                     <Stack mt='6' spacing='3'>
                         <Heading size='md'>{p.nombre}</Heading>
-                        <Text>
-                            This sofa is perfect for modern tropical spaces, baroque inspired
-                            spaces, earthy toned spaces and for people who love a chic design with a
-                            sprinkle of vintage design.
-                        </Text>
                         <Text color='blue.600' fontSize='2xl'>
-                            {p.precio}
+                            ${p.precio}
                         </Text>
                     </Stack>
                 </CardBody>
                 <Divider />
                 <CardFooter>
                     <ButtonGroup spacing='2'>
-                        <Button variant='solid' colorScheme='blue'>
-                            Buy now
-                        </Button>
-                        <Button variant='ghost' colorScheme='blue'>
-                            Add to cart
-                        </Button>
+                        <Link to={'/cart'}>
+                            <Button variant='solid' colorScheme='blue'>
+                                Agregar al carrito
+                            </Button>
+                        </Link>
+                        <Link to={`/itemDetailContainer/${p.id}`}>
+                            <Button variant='ghost' colorScheme='blue'>
+                                Detalles
+                            </Button>
+                        </Link>
                     </ButtonGroup>
                 </CardFooter>
             </Card>
