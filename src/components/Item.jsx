@@ -1,7 +1,7 @@
 import React from 'react'
 import { Card, Stack, CardBody, CardFooter, ButtonGroup, Divider, Heading, Button, Text, Image } from '@chakra-ui/react'
 import { Link } from 'react-router-dom'
-const Item = ({p}) => {
+const Item = ({id,nombre,precio}) => {
     return (
         <div>
             <Card maxW='sm' m='5'>
@@ -12,9 +12,9 @@ const Item = ({p}) => {
                         borderRadius='lg'
                     />
                     <Stack mt='6' spacing='3'>
-                        <Heading size='md'>{p.nombre}</Heading>
+                        <Heading size='md'>{nombre}</Heading>
                         <Text color='blue.600' fontSize='2xl'>
-                            ${p.precio}
+                            ${precio}
                         </Text>
                     </Stack>
                 </CardBody>
@@ -26,7 +26,7 @@ const Item = ({p}) => {
                                 Agregar al carrito
                             </Button>
                         </Link>
-                        <Link to={`/itemDetailContainer/${p.id}`}>
+                        <Link to={`/itemDetailContainer/${id}`}>
                             <Button variant='ghost' colorScheme='blue'>
                                 Detalles
                             </Button>

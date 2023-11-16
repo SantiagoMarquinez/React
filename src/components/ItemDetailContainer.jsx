@@ -39,6 +39,7 @@ const ItemDetailContainer = ({ id }) => {
                     <ItemDetail p={producto} />
                 ) : (
                     <p className='error'>No se encontró el producto </p>
+                    
                 )}
             </div>
             <ItemCount />
