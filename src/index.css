@@ -76,7 +76,7 @@ button:focus-visible {
   flex-direction: row;
   flex-wrap: wrap;
   background-color: #1a1a1a;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 
 .error{
