@@ -1,8 +1,8 @@
 import React from 'react'
-import { Card, Stack, CardBody, CardFooter, ButtonGroup, Divider, Heading, Button, Text, Image } from '@chakra-ui/react'
+import { Card, Stack, CardBody, CardFooter, ButtonGroup, Divider, Heading, Text, Image } from '@chakra-ui/react'
 import ItemCount from './ItemCount'
 
-const ItemDetail = ({p}) => {
+const ItemDetail = ({nombre, precio}) => {
     return (
         <div>
             <Card maxW='sm' m='5'>
@@ -13,14 +13,14 @@ const ItemDetail = ({p}) => {
                         borderRadius='lg'
                     />
                     <Stack mt='6' spacing='3'>
-                        <Heading size='md'>{p.nombre}</Heading>
+                        <Heading size='md'>{nombre}</Heading>
                         <Text>
                             This sofa is perfect for modern tropical spaces, baroque inspired
                             spaces, earthy toned spaces and for people who love a chic design with a
                             sprinkle of vintage design.
                         </Text>
                         <Text color='blue.600' fontSize='2xl'>
-                            {p.precio}
+                            {precio}
                         </Text>
                     </Stack>
                 </CardBody>

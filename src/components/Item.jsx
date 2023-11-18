@@ -26,7 +26,7 @@ const Item = ({id,nombre,precio}) => {
                                 Agregar al carrito
                             </Button>
                         </Link>
-                        <Link to={`/itemDetailContainer/${id}`}>
+                        <Link to={`/item/${id}`}>
                             <Button variant='ghost' colorScheme='blue'>
                                 Detalles
                             </Button>
