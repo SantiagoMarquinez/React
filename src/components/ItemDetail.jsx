@@ -20,7 +20,7 @@ const ItemDetail = ({nombre, precio}) => {
                             sprinkle of vintage design.
                         </Text>
                         <Text color='blue.600' fontSize='2xl'>
-                            {precio}
+                            ${precio}
                         </Text>
                     </Stack>
                 </CardBody>

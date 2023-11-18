@@ -21,9 +21,6 @@ const ItemListContainer = () => {
 
     return (
         <>
-            <Flex>
-                <h2> Mis Productos </h2>
-            </Flex>
             <ItemList productos={productos} />
         </>
     )

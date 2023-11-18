@@ -15,6 +15,7 @@ const NavBar = () => {
                             boxSize='45px'
                             src="./src/assets/images/logocuervo.png" alt="logocuervo"
                         />
+                        <h6>Inicio</h6>
                     </Box>
                 </Link>
                 <Spacer />

@@ -45,6 +45,7 @@ const ItemCount = () => {
     }
     return (
         <>
+        <div className='countContainer'>
             <div className='classCount'>
 
                 <Button colorScheme='teal' variant='ghost' onClick={decCount}>
@@ -56,11 +57,15 @@ const ItemCount = () => {
                 <Button colorScheme='teal' variant='ghost' onClick={incContador}>
                     +
                 </Button>
-                <ToastContainer />
             </div>
             <div className='classCount'>
                 <Button colorScheme='linkedin' onClick={addCart}>Agregar al carrito</Button>
+                <ToastContainer />
             </div>
+        </div>
+            {/* <div className='classCount'>
+                <Button colorScheme='linkedin' onClick={addCart}>Agregar al carrito</Button>
+            </div> */}
         </>
     )
 }

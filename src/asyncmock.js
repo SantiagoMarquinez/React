@@ -21,13 +21,16 @@ export const getProductos = () => {
 }
 
 export const getUnProducto = (id) => {
-    return new Promise(resolve => {
+    return new Promise((resolve) => {
         setTimeout(() => {
-            const producto = Productos.find(item => item.id === id);
+            // Convert idItem to number
+            const itemId = parseInt(id, 10);
+            const producto = Productos.find((item) => item.id === itemId);
             resolve(producto);
-        }, 500)
-    })
-}
+        }, 500);
+    });
+};
+
 
 export const getProdByCat = (idCategoria) => {
     return new Promise(resolve => {

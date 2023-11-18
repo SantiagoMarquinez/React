@@ -68,7 +68,6 @@ button:focus-visible {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #1a1a1a;
 }
 
 .cardContainer{
@@ -77,6 +76,16 @@ button:focus-visible {
   flex-wrap: wrap;
   background-color: #1a1a1a;
   justify-content: space-around;
+}
+
+.countContainer{
+  display:flex ;
+  flex-direction: column;
+
+}
+
+.chakra-card__footer{
+  justify-content: center;
 }
 
 .error{
