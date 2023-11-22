@@ -78,10 +78,29 @@ button:focus-visible {
   justify-content: space-around;
 }
 
+.card{
+  width: 30%;
+  display: flex;
+}
+
+.cardImg{
+  max-height: 300px;
+  object-fit: cover;
+}
+
 .countContainer{
   display:flex ;
   flex-direction: column;
 
+}
+
+.navBar{
+  background-color: #001f3f;
+    color:#FFFFFF ;
+}
+
+.categorias{
+  color:#001f3f;
 }
 
 .chakra-card__footer{

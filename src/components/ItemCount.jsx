@@ -59,13 +59,10 @@ const ItemCount = () => {
                 </Button>
             </div>
             <div className='classCount'>
-                <Button colorScheme='linkedin' onClick={addCart}>Agregar al carrito</Button>
+                <Button variant='solid' colorScheme='facebook' onClick={addCart}>Agregar al carrito</Button>
                 <ToastContainer />
             </div>
         </div>
-            {/* <div className='classCount'>
-                <Button colorScheme='linkedin' onClick={addCart}>Agregar al carrito</Button>
-            </div> */}
         </>
     )
 }

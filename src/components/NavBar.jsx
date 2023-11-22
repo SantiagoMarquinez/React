@@ -7,7 +7,7 @@ const NavBar = () => {
     return (
         <div>
 
-            <Flex>
+            <Flex className='navBar'>
                 <Link to={'/'}>
                     <Box ml={8} mt={2} mb={2} >
                         <Image
@@ -26,12 +26,14 @@ const NavBar = () => {
                                 Categorias
                             </Text>
                         </MenuButton>
-                        <MenuList>
-                            <MenuItem><NavLink to='categoria/camisetas'> Camisetas</NavLink></MenuItem>
-                            <MenuItem><NavLink to='categoria/camperas'>Camperas</NavLink></MenuItem>
-                            <MenuItem><NavLink to='categoria/shorts'>Shorts</NavLink></MenuItem>
-                            <MenuItem><NavLink to='categoria/medias'>Medias</NavLink></MenuItem>
-                        </MenuList>
+                        <div className='categorias'>
+                            <MenuList backgroundColor='#ffffff'>
+                                <MenuItem ><NavLink to='categoria/camisetas'> Camisetas</NavLink></MenuItem>
+                                <MenuItem ><NavLink to='categoria/camperas'>Camperas</NavLink></MenuItem>
+                                <MenuItem ><NavLink to='categoria/shorts'>Shorts</NavLink></MenuItem>
+                                <MenuItem ><NavLink to='categoria/buzos'>Buzos</NavLink></MenuItem>
+                            </MenuList>
+                        </div>
                     </Menu>
                 </Box>
                 <Spacer />

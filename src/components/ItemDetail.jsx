@@ -1,33 +1,29 @@
 import React from 'react'
-import { Card, Stack, CardBody, CardFooter, ButtonGroup, Divider, Heading, Text, Image } from '@chakra-ui/react'
+import { Card, Stack, CardBody, CardFooter, ButtonGroup, Divider, Heading, Text, Image, Center } from '@chakra-ui/react'
 import ItemCount from './ItemCount'
 
-const ItemDetail = ({nombre, precio}) => {
+const ItemDetail = ({ nombre, precio, descripcion, imagen }) => {
     return (
         <div>
             <Card maxW='sm' m='5'>
                 <CardBody>
-                    <Image
-                        src='https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80'
-                        alt='Green double couch with wooden legs'
-                        borderRadius='lg'
-                    />
+                    <img className='cardImg' src={imagen} alt="" />
                     <Stack mt='6' spacing='3'>
-                        <Heading size='md'>{nombre}</Heading>
-                        <Text>
-                            This sofa is perfect for modern tropical spaces, baroque inspired
-                            spaces, earthy toned spaces and for people who love a chic design with a
-                            sprinkle of vintage design.
+                        <Center><Heading size='md'>{nombre}</Heading></Center>
+                        <Text textAlign={['center']}>
+                            {descripcion}
                         </Text>
-                        <Text color='blue.600' fontSize='2xl'>
-                            ${precio}
-                        </Text>
+                        <Center>
+                            <Text color='blue.600' fontSize='2xl'>
+                                ${precio}
+                            </Text>
+                        </Center>
                     </Stack>
                 </CardBody>
                 <Divider />
                 <CardFooter>
                     <ButtonGroup spacing='2'>
-                        <ItemCount/>
+                        <ItemCount />
                     </ButtonGroup>
                 </CardFooter>
             </Card>
