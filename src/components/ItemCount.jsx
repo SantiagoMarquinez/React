@@ -1,14 +1,17 @@
-import React from 'react'
+import React, {useContext, useState} from 'react'
 import { Button, Badge, Toast } from '@chakra-ui/react'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { CartContext } from '../context/CartContext';
 
 const ItemCount = () => {
-    const [count, setCount] = React.useState(0)
+    const {cart, setCart}=useContext(CartContext);
+    const [count, setCount] = React.useState(0);
+    console.log(cart);
 
     const incContador = () => {
         if (count < 10) {
-            setCount(count + 1)
+            setCount(count + 1);
         }
     }
 

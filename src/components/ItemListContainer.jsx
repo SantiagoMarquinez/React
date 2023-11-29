@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { getProductos, getProdByCat } from "../asyncmock";
 import ItemList from './ItemList';
 import { useParams } from "react-router-dom";
-import { Flex } from '@chakra-ui/react';
+import { CollectionReference } from 'firebase/firestore';
 
 const ItemListContainer = () => {
     const [productos, setProductos] = useState([]);
