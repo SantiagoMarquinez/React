@@ -6,7 +6,6 @@
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
   background-color: #1a1a1a;
-
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -74,8 +73,8 @@ button:focus-visible {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  background-color: #1a1a1a;
-  justify-content: space-around;
+  background-image: url(../src/assets/images/fondo.jpg);
+    justify-content: space-around;
 }
 
 .card{
@@ -83,9 +82,14 @@ button:focus-visible {
   display: flex;
 }
 
+.css-qrcfq0{
+  background-color:#ffffff73 !important;
+}
+
 .cardImg{
   max-height: 300px;
-  object-fit: cover;
+  object-fit:cover;
+  border-radius: 8px;
 }
 
 .countContainer{
@@ -95,7 +99,7 @@ button:focus-visible {
 }
 
 .navBar{
-  background-color: #001f3f;
+  background-color:#1f2124;
     color:#FFFFFF ;
 }
 

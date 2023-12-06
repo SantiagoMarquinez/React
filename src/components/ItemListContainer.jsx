@@ -1,20 +1,20 @@
 import React from 'react';
 import { useState, useEffect } from "react";
-// import { getProductos, getProdByCat } from "../asyncmock";
 import ItemList from './ItemList';
 import { useParams } from "react-router-dom";
-import { collection, getDocs } from 'firebase/firestore';
-import {db} from "../firebase/config"
+import {db} from "../firebase/config";
+import { collection, getDocs, query, where} from 'firebase/firestore';
+
 
 const ItemListContainer = () => {
     const [productos, setProductos] = useState([]);
 
-    const { idCategoria } = useParams();
+    const idCategoria= useParams().idCategoria;
 
     useEffect(() => {
-        const productosRef = collection(db, "products");
+        const mostrarProductos = idCategoria ? query(collection(db, "products"), where("categoria","==",idCategoria )) : collection(db,"products");
 
-        getDocs(productosRef)
+        getDocs(mostrarProductos)
             .then((resp)=>{
                 setProductos(
                     resp.docs.map((doc)=>{
@@ -22,13 +22,7 @@ const ItemListContainer = () => {
                     })
                 )
             })
-
-
-        // const funcionProductos = idCategoria ? getProdByCat : getProductos;
-
-        // funcionProductos(idCategoria)
-        //     .then(res => setProductos(res))
-
+            .catch (error=> console.log(error))
     }, [idCategoria])
 
     return (

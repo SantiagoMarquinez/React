@@ -5,21 +5,23 @@ import { CartContext } from '../context/CartContext';
 import { Link } from 'react-router-dom';
 
 const CartWidget = () => {
-    const { productosComprados } = useContext(CartContext)
-    console.log(productosComprados)
+    const {cantidadTotal } = useContext(CartContext)
+    console.log(cantidadTotal)
     return (
         <>
             <Spacer />
             <div className='logoCarrito'>
-                <h3 className='numeroCarrito'>{productosComprados}</h3>
-                <Flex align='center' justify='center'>
-                    <Link to={'/cart'}>
-                        <BsFillCartFill />
-                    </Link>
-                </Flex>
+            <Flex align='center' justify='center'>
+                <Link to={'/cart'}>
+                <BsFillCartFill />
+                </Link>
+                {cantidadTotal > 0 && (
+                <h3 className='numeroCarrito'>{cantidadTotal}</h3>
+                )}
+            </Flex>
             </div>
         </>
-    )
+        );
 }
 
 export default CartWidget

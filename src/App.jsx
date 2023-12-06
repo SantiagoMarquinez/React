@@ -1,13 +1,13 @@
-import React, { useState } from 'react'
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import NavBar from './components/NavBar'
-import ItemListContainer from './components/ItemListContainer'
+import React,{useState} from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import NavBar from './components/NavBar';
+import ItemListContainer from './components/ItemListContainer';
 import Cart from './components/Cart';
 import ItemDetailContainer from './components/ItemDetailContainer';
 import {CartProvider } from './context/CartContext';
 
 const App = () => {
-  // const [cartNumber, setcartNumber]= useState()
+  const [carrito, setCarrito] = useState([]);
   return (
     <div>
       <CartProvider>

@@ -1,8 +1,23 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { Card, Stack, CardBody, CardFooter, ButtonGroup, Divider, Heading, Text, Image, Center } from '@chakra-ui/react'
 import ItemCount from './ItemCount'
+import { Link } from 'react-router-dom';
+import { CartContext } from '../context/CartContext';
+import { useContext } from 'react';
 
-const ItemDetail = ({ nombre, precio, descripcion, imagen }) => {
+const ItemDetail = ({id, nombre, precio, descripcion, imagen, stock }) => {
+
+    const [agregarCantidad, setAgregarCantidad] = useState(0);
+
+    const {agregarAlCarrito} = useContext (CartContext);
+
+    const manejadorCantidad = (cantidad) => {
+        setAgregarCantidad(cantidad);
+
+        const producto ={id, nombre, precio};
+        agregarAlCarrito(producto, cantidad);
+    }
+
     return (
         <div>
             <Card maxW='sm' m='5'>
@@ -22,9 +37,11 @@ const ItemDetail = ({ nombre, precio, descripcion, imagen }) => {
                 </CardBody>
                 <Divider />
                 <CardFooter>
-                    <ButtonGroup spacing='2'>
-                        <ItemCount />
-                    </ButtonGroup>
+                    {
+                    agregarCantidad > 0 ? (<Link to="/cart">Ir al carrito</Link>) : (<ButtonGroup spacing='2'>
+                        <ItemCount inicial={1} stock={stock} funcionAgregar={manejadorCantidad}/>
+                    </ButtonGroup>)}
+
                 </CardFooter>
             </Card>
         </div>
