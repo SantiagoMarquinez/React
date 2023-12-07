@@ -1,5 +1,7 @@
 import React, {useState} from 'react'
-import { Card, Stack, CardBody, CardFooter, ButtonGroup, Divider, Heading, Text, Image, Center } from '@chakra-ui/react'
+import { Card, Stack, CardBody, CardFooter, ButtonGroup, Divider, Heading, Text, Center } from '@chakra-ui/react'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import ItemCount from './ItemCount'
 import { Link } from 'react-router-dom';
 import { CartContext } from '../context/CartContext';
@@ -12,10 +14,24 @@ const ItemDetail = ({id, nombre, precio, descripcion, imagen, stock }) => {
     const {agregarAlCarrito} = useContext (CartContext);
 
     const manejadorCantidad = (cantidad) => {
+
+            toast.success(`Has agregado ${cantidad} producto/s al carrito`, {
+                position: "top-right",
+                autoClose: 2000,
+                hideProgressBar: true,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "dark",
+            });
+
         setAgregarCantidad(cantidad);
 
         const producto ={id, nombre, precio};
         agregarAlCarrito(producto, cantidad);
+
+        
     }
 
     return (
@@ -44,6 +60,7 @@ const ItemDetail = ({id, nombre, precio, descripcion, imagen, stock }) => {
 
                 </CardFooter>
             </Card>
+            <ToastContainer />
         </div>
     )
 }

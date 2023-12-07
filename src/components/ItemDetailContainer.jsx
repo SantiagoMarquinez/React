@@ -8,6 +8,7 @@ import{doc, getDoc} from "firebase/firestore";
 
 const ItemDetailContainer = () => {
     const [producto, setProducto] = useState(null);
+    const [loading, setLoading] = useState(true);
     const {idItem} = useParams();
 
     useEffect(() => {
@@ -19,11 +20,13 @@ const ItemDetailContainer = () => {
                     );
             })
             .catch( error=>console.log(error))
+            .finally(()=> setLoading(false))
     }, [idItem])
     
     return (
         <div className='cardContainer'>
-            {producto ? <ItemDetail {...producto} />: <p>Producto no encontrado</p>}
+            {!loading ? (producto ? <ItemDetail {...producto} /> : <p>Producto no encontrado</p>
+            ) : (<p style={{color: '#fff'}}>Cargando</p>)}
         </div>
     )
 }

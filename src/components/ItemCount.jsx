@@ -1,8 +1,5 @@
-import React, {useContext, useState} from 'react'
-import { Button, Badge, Toast } from '@chakra-ui/react'
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-import { CartContext } from '../context/CartContext';
+import React, {useState} from 'react'
+import { Button, Badge} from '@chakra-ui/react'
 
 const ItemCount = ({inicial, stock, funcionAgregar}) => {
 
@@ -20,31 +17,6 @@ const ItemCount = ({inicial, stock, funcionAgregar}) => {
         }
     }
 
-    // const addCart = () => {
-    //     if (count > inicial) {
-    //         toast.success(`Has agregado ${count} producto/s al carrito`, {
-    //             position: "top-right",
-    //             autoClose: 2000,
-    //             hideProgressBar: true,
-    //             closeOnClick: true,
-    //             pauseOnHover: true,
-    //             draggable: true,
-    //             progress: undefined,
-    //             theme: "dark",
-    //         });
-    //     } else {
-    //         toast.error('No has seleccionado ningun producto', {
-    //             position: "top-right",
-    //             autoClose: 2000,
-    //             hideProgressBar: true,
-    //             closeOnClick: true,
-    //             pauseOnHover: true,
-    //             draggable: true,
-    //             progress: undefined,
-    //             theme: "dark",
-    //         });
-    //     }
-    // }
     return (
         <>
         <div className='countContainer'>
@@ -62,7 +34,7 @@ const ItemCount = ({inicial, stock, funcionAgregar}) => {
             </div>
             <div className='classCount'>
                 <Button variant='solid' colorScheme='facebook' onClick={()=>funcionAgregar(count)}>Agregar al carrito</Button>
-                <ToastContainer />
+                
             </div>
         </div>
         </>

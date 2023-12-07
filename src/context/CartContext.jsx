@@ -50,6 +50,8 @@ const vaciarCarrito = () => {
     setCarrito([]);
     setCantidadTotal(0);
     setTotal(0);
+
+    
 }
 
 return (

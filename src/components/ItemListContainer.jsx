@@ -4,6 +4,7 @@ import ItemList from './ItemList';
 import { useParams } from "react-router-dom";
 import {db} from "../firebase/config";
 import { collection, getDocs, query, where} from 'firebase/firestore';
+import Swal from "sweetalert2";
 
 
 const ItemListContainer = () => {
@@ -13,6 +14,13 @@ const ItemListContainer = () => {
 
     useEffect(() => {
         const mostrarProductos = idCategoria ? query(collection(db, "products"), where("categoria","==",idCategoria )) : collection(db,"products");
+    // Muestra SweetAlert cuando se cargan los pruductos
+        const loadingSwal = Swal.fire({
+            title: "Cargando productos",
+            didOpen: () => {
+                Swal.showLoading();
+            },
+        });
 
         getDocs(mostrarProductos)
             .then((resp)=>{
@@ -23,6 +31,10 @@ const ItemListContainer = () => {
                 )
             })
             .catch (error=> console.log(error))
+            .finally(() => {
+                loadingSwal.close(); // Cierra SweetAlert cuando termina de cargar
+                setLoading(false);
+                });
     }, [idCategoria])
 
     return (
