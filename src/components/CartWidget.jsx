@@ -6,7 +6,6 @@ import { Link } from 'react-router-dom';
 
 const CartWidget = () => {
     const {cantidadTotal } = useContext(CartContext)
-    console.log(cantidadTotal)
     return (
         <>
             <Spacer />

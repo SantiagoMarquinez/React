@@ -9,7 +9,7 @@ const Item = ({id,nombre,precio, imagen}) => {
                     <img className='cardImg' src={imagen} alt="" />
                     <Stack mt='6' spacing='3'>
                         <Heading size='md'>{nombre}</Heading>
-                        <Text color='blue.600' fontSize='2xl'>
+                        <Text color='blackAlpha.800' fontSize='2xl'>
                             ${precio}
                         </Text>
                     </Stack>
@@ -17,11 +17,6 @@ const Item = ({id,nombre,precio, imagen}) => {
                 <Divider />
                 <CardFooter>
                     <ButtonGroup spacing='2'>
-                        {/* <Link to={'/cart'}>
-                            <Button variant='solid' colorScheme='facebook'>
-                                Agregar al carrito
-                            </Button>
-                        </Link> */}
                         <Link to={`/item/${id}`}>
                             <Button variant='solid' colorScheme='blackAlpha'>
                                 Detalles

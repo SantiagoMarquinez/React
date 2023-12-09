@@ -22,18 +22,18 @@ const ItemCount = ({inicial, stock, funcionAgregar}) => {
         <div className='countContainer'>
             <div className='classCount'>
 
-                <Button colorScheme='teal' variant='ghost' onClick={decCount}>
+                <Button colorScheme='blackAlpha.900' variant='ghost' onClick={decCount}>
                     -
                 </Button>
 
-                <Badge colorScheme='purple'>{count}</Badge>
+                <Badge colorScheme='blackAlpha.900'>{count}</Badge>
 
-                <Button colorScheme='teal' variant='ghost' onClick={incContador}>
+                <Button colorScheme='blackAlpha.900' variant='ghost' onClick={incContador}>
                     +
                 </Button>
             </div>
             <div className='classCount'>
-                <Button variant='solid' colorScheme='facebook' onClick={()=>funcionAgregar(count)}>Agregar al carrito</Button>
+                <Button variant='solid' colorScheme='blackAlpha' onClick={()=>funcionAgregar(count)}>Agregar al carrito</Button>
                 
             </div>
         </div>

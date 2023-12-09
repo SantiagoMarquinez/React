@@ -1,8 +1,9 @@
 import React, { useState, useEffect} from 'react';
 import ItemDetail from './ItemDetail';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import{db} from "../firebase/config";
 import{doc, getDoc} from "firebase/firestore";
+import Swal from 'sweetalert2'
 
 
 
@@ -19,16 +20,23 @@ const ItemDetailContainer = () => {
                     {...resp.data(), idItem: resp.idItem}
                     );
             })
-            .catch( error=>console.log(error))
+            .catch( error=>{
+                Swal.fire({
+                    icon: "error",
+                    title: "Algo salió mal",
+                    text: "No encontramos el producto :( ",
+                });
+            })
             .finally(()=> setLoading(false))
     }, [idItem])
     
     return (
         <div className='cardContainer'>
-            {!loading ? (producto ? <ItemDetail {...producto} /> : <p>Producto no encontrado</p>
+            {!loading ? (producto ? <ItemDetail {...producto} /> : <Link to={'/'}><h3 className='productoNoEncontrado'>Volver</h3></Link>
             ) : (<p style={{color: '#fff'}}>Cargando</p>)}
         </div>
     )
 }
 
 export default ItemDetailContainer
+

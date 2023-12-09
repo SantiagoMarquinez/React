@@ -45,7 +45,7 @@ const ItemDetail = ({id, nombre, precio, descripcion, imagen, stock }) => {
                             {descripcion}
                         </Text>
                         <Center>
-                            <Text color='blue.600' fontSize='2xl'>
+                            <Text color='blackAlpha.800' fontSize='2xl'>
                                 ${precio}
                             </Text>
                         </Center>

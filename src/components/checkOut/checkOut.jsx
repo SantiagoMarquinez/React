@@ -26,7 +26,7 @@ const Checkout = () => {
             setError("Los campos del email no coinciden");
             return;
         }
-
+        console.log(carrito)
         const orden = {
             items: carrito.map(prod => ({
                 id: prod.producto.id,
@@ -44,7 +44,7 @@ const Checkout = () => {
         //Descuento de stock en firebase
         Promise.all(
             orden.items.map(async (productoOrden) => {
-                const productoRef = doc(db, "productos", productoOrden.id);
+                const productoRef = doc(db, "products", productoOrden.id);
                 const productoDoc = await getDoc(productoRef);
                 const stockActual = productoDoc.data().stock;
                 await updateDoc(productoRef, {
@@ -76,7 +76,7 @@ const Checkout = () => {
             <form onSubmit={manejadorFormulario} className="formulario">
                 {
                     carrito.map(prod => (
-                        <div key={producto.id}>
+                        <div key={prod.producto.id}>
                             <p> {prod.producto.nombre} - Cantidad: {prod.cantidad} </p>
                             <p>{prod.producto.precio}</p>
                             <hr />
