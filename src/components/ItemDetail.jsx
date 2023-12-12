@@ -28,8 +28,8 @@ const ItemDetail = ({id, nombre, precio, descripcion, imagen, stock }) => {
 
         setAgregarCantidad(cantidad);
 
-        const producto ={id, nombre, precio};
-        agregarAlCarrito(producto, cantidad);
+        const producto ={id, nombre, precio,stock};
+        agregarAlCarrito(producto, cantidad, stock);
 
         
     }

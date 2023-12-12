@@ -1,8 +1,7 @@
 import { useState, useEffect, useContext } from "react";
 import { CartContext } from "../../context/CartContext";
 import { db } from "../../firebase/config";
-import { collection, addDoc, updateDoc, doc, getDoc } from "firebase/firestore";
-
+import { collection, addDoc, updateDoc, doc, getDoc, query, where, getDocs } from "firebase/firestore";
 
 const Checkout = () => {
     const [nombre, setNombre] = useState("");
@@ -12,62 +11,68 @@ const Checkout = () => {
     const [emailConfirmacion, setEmailConfirmacion] = useState("");
     const [error, setError] = useState("");
     const [ordenId, setOrdenId] = useState("");
-    const { carrito, vaciarCarrito, total, totalCantidad } = useContext(CartContext);
+    const { carrito, vaciarCarrito, total } = useContext(CartContext);
 
-    const manejadorFormulario = (event) => {
+    const manejadorFormulario = async (event) => {
         event.preventDefault();
 
-        if (!nombre || !apellido || !telefono || !email || !emailConfirmacion) {
-            setError("Por favor completa todos los campos");
-            return;
-        }
+        try {
+            // Validaciones de formulario
+            if (!nombre || !apellido || !telefono || !email || !emailConfirmacion) {
+                throw new Error("Por favor completa todos los campos");
+            }
 
-        if (email !== emailConfirmacion) {
-            setError("Los campos del email no coinciden");
-            return;
-        }
-        console.log(carrito)
-        const orden = {
-            items: carrito.map(prod => ({
-                id: prod.producto.id,
-                nombre: prod.producto.nombre,
-                cantidad: prod.cantidad
-            })),
-            total: total,
-            fecha: new Date(),
-            nombre,
-            apellido,
-            telefono,
-            email
-        };
+            if (email !== emailConfirmacion) {
+                throw new Error("Los campos del email no coinciden");
+            }
 
-        //Descuento de stock en firebase
-        Promise.all(
-            orden.items.map(async (productoOrden) => {
-                const productoRef = doc(db, "products", productoOrden.id);
-                const productoDoc = await getDoc(productoRef);
-                const stockActual = productoDoc.data().stock;
-                await updateDoc(productoRef, {
-                    stock: stockActual - productoOrden.cantidad
+            // Descuento de stock en Firebase
+            await Promise.all(
+                carrito.map(async (prod) => {
+                    const productosQuery = query(collection(db, "products"), where("id", "==", prod.producto.id));
+                    const productosSnapshot = await getDocs(productosQuery);
+
+                    if (!productosSnapshot.empty) {
+                        const primerProducto = productosSnapshot.docs[0];
+                        const stockActual = primerProducto.data().stock;
+
+                        await updateDoc(primerProducto.ref, {
+                            stock: stockActual - prod.cantidad,
+                        });
+                    } else {
+                        console.log(`No se encontró ningún producto con el ID ${prod.producto.id}`);
+                    }
                 })
-            })
-        )
-            .then(() => {
-                addDoc(collection(db, "ordenes"), orden)
-                    .then(docRef => {
-                        setOrdenId(docRef.id);
-                        vaciarCarrito();
-                    })
-                    .catch(error => {
-                        console.log("Error al crear la orden", error);
-                        setError("Se produjo un error al crear la orden");
-                    })
-            })
-            .catch((error) => {
-                console.log("No se pudo actualizar el stock", error);
-                setError("No se puede actualizar el stock");
-            })
-    }
+            );
+
+            // Crear orden en la colección "ordenes"
+            const orden = {
+                items: carrito.map((prod) => ({
+                    id: prod.producto.id,
+                    nombre: prod.producto.nombre,
+                    cantidad: prod.cantidad,
+                })),
+                total: total,
+                fecha: new Date(),
+                nombre,
+                apellido,
+                telefono,
+                email,
+            };
+
+            if (orden.items.length === 0) {
+                throw new Error("No hay productos en el carrito");
+            }
+
+            const docRef = await addDoc(collection(db, "ordenes"), orden);
+
+            setOrdenId(docRef.id);
+            vaciarCarrito();
+        } catch (error) {
+            console.error("Error en el proceso de checkout:", error);
+            setError(error.message || "Se produjo un error durante el proceso de checkout");
+        }
+    };
 
     return (
         <div>
