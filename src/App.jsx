@@ -10,7 +10,7 @@ import {CartProvider } from './context/CartContext';
 const App = () => {
   const [carrito, setCarrito] = useState([]);
   return (
-    <div>
+    <div className='principal'>
       <CartProvider>
         <BrowserRouter>
           <NavBar />
