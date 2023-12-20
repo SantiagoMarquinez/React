@@ -53,6 +53,17 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
+/*NAVBAR*/
+
+.navBar{
+  background-color:#1f2124;
+  color:white;
+}
+
+.categorias{
+  color:#001f3f;
+}
+
 .logoCarrito{
   position: absolute;
 }
@@ -63,21 +74,35 @@ button:focus-visible {
   color: white;
 }
 
+.countContainer{
+  display:flex ;
+  flex-direction: column;
+}
+
 .classCount{
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
+.principal{
+  background-image: url(../src/assets/images/fondo.jpg);
+  background-size: cover;
+  flex-direction:column;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+
+/*CARD*/
 .cardContainer{
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  /* justify-content: space-around; */
 }
 
 .card{
-  max-width: 15%;
+  height: 15%;
   display: flex;
 }
 
@@ -91,19 +116,11 @@ button:focus-visible {
   border-radius: 8px;
 }
 
-.countContainer{
-  display:flex ;
-  flex-direction: column;
+.chakra-card__footer{
+  justify-content: center;
 }
 
-.navBar{
-  background-color:#1f2124;
-    color:white;
-}
-
-.categorias{
-  color:#001f3f;
-}
+/*CARRITO*/
 
 .carrito{
   display: flex;
@@ -114,6 +131,28 @@ button:focus-visible {
   padding-bottom: 1%;
 }
 
+.contenedorProductosCarrito{
+  display: flex;
+  flex-direction: row;
+  gap:3px;
+  padding-bottom: 1%;
+  padding-top: 2%;
+  border-radius: 5px;
+  background-color: #f9f9f9bd;
+}
+
+.productoCarrito{
+  background-color: #f9f9f9bd;
+  display: flex;
+  flex-direction:row;
+  flex-wrap: wrap;
+  align-self: center;
+  max-width: 30%;
+  border-radius: 5px;
+  padding: 15px;
+  margin: 10px 5px 10px 5px
+}
+
 .resumenCarrito{
   width: 17em;
   display: flex;
@@ -121,7 +160,7 @@ button:focus-visible {
   background-color: #f9f9f9bd;
   border-radius: 5px;  
   gap:5px;
-  padding-left: 1em;
+  padding: 1em;
   margin: 10px 5px 10px 5px
 }
 
@@ -144,39 +183,27 @@ button:focus-visible {
   align-self: center;
 }
 
+
+/*CHECKOUT*/
 .contenedorOrden{
   display: flex;
   flex-direction: column;
+  align-items: center;
 
 }
 
 .orden{
   display: flex;
   flex-direction: column;
-  /* align-items: start; */
 }
 
 .totalOrden{
   background-color: #f9f9f9bd;
   text-align: center;
-  /* display: flex;
-  flex-direction:column;
- */
   align-self: center;
-  max-width: 30%;
   border-radius: 5px;
   padding: 15px;
   margin: 10px 5px 10px 5px
-}
-
-.contenedorProductosCarrito{
-  display: flex;
-  flex-direction: row;
-  gap:3px;
-  padding-bottom: 1%;
-  padding-top: 2%;
-  border-radius: 5px;
-  background-color: #f9f9f9bd;
 }
 
 .contenedorProductosOrden{
@@ -189,19 +216,16 @@ button:focus-visible {
   justify-content: center;
 }
 
-.productoCarrito{
+.productoOrden{
   background-color: #f9f9f9bd;
   display: flex;
   flex-direction:column;
+  flex-wrap: wrap;
   align-self: center;
-  max-width: 30%;
+  max-width: 40%;
   border-radius: 5px;
   padding: 15px;
   margin: 10px 5px 10px 5px
-}
-
-.chakra-card__footer{
-  justify-content: center;
 }
 
 .error{
@@ -214,21 +238,9 @@ button:focus-visible {
   font-size: larger;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #f9f9f9bd;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
-}
+/*FORMULARIO*/
 
-
-.contenedorFormulario {
+/* .contenedorFormulario {
   width: 100%;
   height: 100vh;
   display: flex;
@@ -245,9 +257,37 @@ button:focus-visible {
   flex-direction: column;
   justify-content: center;
   align-self: center;
+} */
+
+form {
+  display: flex;
+  flex-direction: column;
+  background-color: #1a1a1a96;
+  box-sizing: border-box;
+  min-width: 10%;
+  width: 30%;
+  padding: 8px 30px;
+  margin: 0 15px;
+  border-radius: 10px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.486);
+  color: #f9f9f9;
+
 }
 
-.formulario {
+fieldset {
+  display: flex;
+  flex-direction: column;
+}
+
+form input [type="text"],
+form input [type="email"] {
+  width: 100%;
+  margin-bottom: 20px;
+  padding: 5px 0;
+  text-indent: 10px;
+  font-size: 100px;
+}
+/* .formulario {
   padding-top: 10px;
   width: 55%;
   min-height: 450px;
@@ -261,7 +301,6 @@ button:focus-visible {
 
 .formularioTitulo {
   color: white;
-  /* background-color: #1a1a1a96; */
   font-size:x-large;
   font-family: "Josefin";
   font-weight: lighter;
@@ -274,7 +313,6 @@ button:focus-visible {
 .formulario label {
   text-align: center;
   color: white;
-  /* background-color: #1a1a1a57; */
   font-family: "Josefin";
   font-weight: lighter;
   display: block;
@@ -287,7 +325,7 @@ button:focus-visible {
   color:  #1a1a1a;
   background-color: white;
   width: 100%;
-    align-self: center;
+  align-self: center;
 }
 
 .formulario button {
@@ -301,12 +339,43 @@ button:focus-visible {
   border: 1px solid rgba(128, 128, 128, 0.788);
   align-self: center;
   margin-top: 40px;
+} */
+
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #f9f9f9bd;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
 }
 
-.principal{
-  background-image: url(../src/assets/images/fondo.jpg);
-  background-size: cover;
-  flex-direction:column;
-  flex-wrap: wrap;
-  align-items: center;
+@media (max-width: 520px) {
+  .contenedorProductosOrden{
+    display: flex;
+    flex-direction: column;
+    gap:3px;
+    padding-bottom: 1%;
+    padding-top: 2%;
+    border-radius: 5px;
+    justify-content: center;
+  }
+
+  .productoOrden{
+    background-color: #f9f9f9bd;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-self: center;
+    max-width: 100%;
+    border-radius: 5px;
+    padding: 15px;
+    margin: 10px 5px 10px 5px;
+    align-items: center;
+  }
 }

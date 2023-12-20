@@ -111,7 +111,7 @@ const Checkout = () => {
                 <div className="contenedorProductosOrden">
                     {
                         carrito.map(prod => (
-                            <div key={prod.producto.id} className="productoCarrito">
+                            <div key={prod.producto.id} className="productoOrden">
                                 <p> {prod.producto.nombre}</p>
                                 <p>Cantidad: {prod.cantidad} </p>
                                 <p>Subtotal: $ {prod.producto.precio * prod.cantidad}</p>
@@ -120,7 +120,8 @@ const Checkout = () => {
                         ))
                     }
                 </div>
-                <h3 className="totalOrden">Total: $ {total}</h3>
+
+                    <h3 className="totalOrden">Total: $ {total}</h3>
             </div>
 
             <form onSubmit={manejadorFormulario} className="contenedorFormulario">
@@ -129,38 +130,30 @@ const Checkout = () => {
 
                     <fieldset className="contenedorCampos">
                         <legend className="formularioTitulo">Ingresa tus datos para confirmar la compra:</legend>
-                        <div className="form-group">
-                            <label htmlFor="nombre">Nombre</label>
-                            <input type="text" id="nombre" onChange={(e) => setNombre(e.target.value)} />
-                        </div>
 
-                        <div className="form-group">
-                            <label htmlFor="apellido">Apellido</label>
-                            <input type="text" id="apellido" onChange={(e) => setApellido(e.target.value)} />
-                        </div>
+                        <label htmlFor="nombre">Nombre</label>
+                        <input type="text" id="nombre" onChange={(e) => setNombre(e.target.value)} />
 
-                        <div className="form-group">
-                            <label htmlFor="telefono">Teléfono</label>
-                            <input type="text" id="telefono" onChange={(e) => setTelefono(e.target.value)} />
-                        </div>
+                        <label htmlFor="apellido">Apellido</label>
+                        <input type="text" id="apellido" onChange={(e) => setApellido(e.target.value)} />
 
-                        <div className="form-group">
-                            <label htmlFor="email">Email</label>
-                            <input type="email" id="email" autoComplete="off" onChange={(e) => setEmail(e.target.value)} />
-                        </div>
+                        <label htmlFor="telefono">Teléfono</label>
+                        <input type="text" id="telefono" onChange={(e) => setTelefono(e.target.value)} />
 
-                        <div className="form-group">
-                            <label htmlFor="emailConfirmacion">Confirma tu email</label>
-                            <input type="email" id="emailConfirmacion" onChange={(e) => setEmailConfirmacion(e.target.value)} />
-                        </div>
+                        <label htmlFor="email">Email</label>
+                        <input type="email" id="email" autoComplete="off" onChange={(e) => setEmail(e.target.value)} />
+
+                        <label htmlFor="emailConfirmacion">Confirma tu email</label>
+                        <input type="email" id="emailConfirmacion" onChange={(e) => setEmailConfirmacion(e.target.value)} />
+
 
                         <button className="botonFormulario" type="submit"> Confirmar Compra </button>
                     </fieldset>
                 </div>
             </form>
             {
-                        ordenId && showSwal(ordenId)
-                    }
+                ordenId && showSwal(ordenId)
+            }
         </div>
     );
 };
